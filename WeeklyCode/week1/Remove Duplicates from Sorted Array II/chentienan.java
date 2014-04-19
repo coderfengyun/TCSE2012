@@ -3,7 +3,7 @@ public class Solution {
 		if (A == null)
 			return 0;
 		int currentLength = A.length;
-		for (int i = 0; i < A.length - 2; i++) {
+		for (int i = 0; i < currentLength - 2; i++) {
 			int countToDelete = applyRestrictionOfDuplicatingMoreThanOnce(getAmountOfDuplicatedIntegerWith(
 					i, A, currentLength));
 			applyRemovingForDuplicatedMoreThanOnce(countToDelete, i + 2, A,
