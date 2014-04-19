@@ -4,8 +4,13 @@ public class Solution {
 			return 0;
 		int currentLength = A.length;
 		for (int i = 0; i < currentLength - 2; i++) {
-			int countToDelete = applyRestrictionOfDuplicatingMoreThanOnce(getAmountOfDuplicatedIntegerWith(
-					i, A, currentLength));
+			int duplicatedCount = getAmountOfDuplicatedIntegerWith(i, A,
+					currentLength);
+			int countToDelete = applyRestrictionOfDuplicatingMoreThanOnce(duplicatedCount);
+			if (countToDelete == 0) {
+				i += duplicatedCount;
+				continue;
+			}
 			applyRemovingForDuplicatedMoreThanOnce(countToDelete, i + 2, A,
 					currentLength);
 			currentLength -= countToDelete;
