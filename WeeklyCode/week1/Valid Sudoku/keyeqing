@@ -1,0 +1,60 @@
+class Solution {
+public:
+    bool isValidSudoku(vector<vector<char> > &board) {
+        if(board.size()!=9) return false;
+        for(int i=0;i<board.size();i++)
+            if(board[i].size()!=9) return false;
+        for(int i=0;i<9;i++)
+        {
+            int hash[10];
+            for(int j=1;j<=9;j++){
+                hash[j]=0;
+            }
+            for(int j=0;j<9;j++){
+                char c=board[i][j];
+                if(c!='.'){
+                    if(hash[c-'0']==0)
+                        hash[c-'0']++;
+                    else
+                        return false;
+                }
+            }
+        }
+        for(int i=0;i<9;i++)
+        {
+            int hash[10];
+            for(int j=1;j<=9;j++){
+                hash[j]=0;
+            }
+            for(int j=0;j<9;j++){
+                char c=board[j][i];
+                if(c!='.'){
+                    if(hash[c-'0']==0)
+                        hash[c-'0']++;
+                    else
+                        return false;
+                }
+            }
+        }
+        for(int i=0;i<9;i+=3)
+            for(int j=0;j<9;j+=3)
+            {
+                int hash[10];
+                for(int k=1;k<=9;k++){
+                    hash[k]=0;
+                }
+                for(int m=i;m<i+3;m++)
+                    for(int n=j;n<j+3;n++)
+                    {
+                        char c=board[m][n];
+                        if(c!='.'){
+                             if(hash[c-'0']==0)
+                             hash[c-'0']++;
+                             else
+                                return false;
+                         }
+                    }
+            }
+        return true;
+    }
+};
