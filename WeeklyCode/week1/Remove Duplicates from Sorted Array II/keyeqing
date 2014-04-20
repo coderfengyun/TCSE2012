@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int removeDuplicates(int A[], int n) {
+        if(n==0||n==1||n==2) return n;
+        int num=0;
+        int j=0,i;
+        for(i=0;i<n-1;i++){
+            if(A[i]==A[i+1]&&num<2){
+                A[j++]=A[i];
+                num++;
+            }
+            if(A[i]==A[i+1]&&num>=2){
+                num++;
+            }
+            if(A[i]!=A[i+1]&&num<2){
+                A[j++]=A[i];
+                num=0;
+            }
+            if(A[i]!=A[i+1]&&num>=2){
+                A[j]=A[i];
+                num=0;
+            }
+        }
+        if(A[n-1] != A[n-2] || A[n-1] == A[n-2] && num < 2)  
+            A[j++] = A[n-1];  
+        return j;  
+    }
+};
