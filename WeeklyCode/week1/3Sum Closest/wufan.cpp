@@ -9,20 +9,20 @@ public:
 	   int sum = 0;
 	   int result = 0;
 	   for (; start < num.size(); start++){
-			  int i = start+1;
-			  int j = end;
-			  while (i < j){
-  				sum = num[start] + num[i] + num[j];
-  				diff = abs(sum - target);
-  				if (diff < min){ 
-  					min = diff;
-  					result = sum;
-  				}
-  				if (sum < target)
-  					i++;
-  				else 
-  					j--;
-  			}
+		  int i = start+1;
+		  int j = end;
+		  while (i < j){
+	  		sum = num[start] + num[i] + num[j];
+	  		diff = abs(sum - target);
+	  		if (diff < min){ 
+	  			min = diff;
+	  			result = sum;
+	  		}
+	  		if (sum < target)
+	  			i++;
+	  		else 
+	  			j--;
+	  	}
   	 }
 	   return result;
 	 }
