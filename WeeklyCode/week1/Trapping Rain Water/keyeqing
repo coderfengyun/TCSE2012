@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int trap(int A[], int n) {
+        vector<int> lh;
+        int count=0;
+        int maxl=A[0];
+        int maxr=A[n-1];
+        for(int i=1;i<n-1;i++){
+            maxl=max(maxl,A[i-1]);
+            lh.push_back(maxl);
+        }
+        for(int i=n-2;i>0;i--){
+            maxr=max(maxr,A[i+1]);
+            if(A[i]<maxr&&A[i]<lh[i-1])
+            count+=min(maxr,lh[i-1])-A[i];
+        }
+        return count;
+    }
+};
