@@ -27,10 +27,11 @@ public class Solution {
         
         //check for 9 size cell where the element stays
         int cellRow = row / 3, cellColumn = column / 3;
-        for(int i = row + 1; i <= 2 + 3 * cellRow; i++)
+        for(int i = row; i <= 2 + 3 * cellRow; i++)
         {
-            for(int j = column + 1; j <= 2 + 3 * cellColumn; j++)
+            for(int j = 3 * cellColumn; j <= 2 + 3 * cellColumn; j++)
             {
+                if( j == column) continue;
                 if(board[i][j] == board[row][column]) return false;
             }
         }
