@@ -4,6 +4,7 @@ public class Solution {
         {
             for(int column = 0; column < 9; column++)
             {
+                if(board[row][column] == '.') continue;
                 if(checkFor(row, column, board)) return false;                
             }
         }
@@ -17,13 +18,13 @@ public class Solution {
             //check for row where the element stays
             for(int i = column + 1; i < 9; i++)
             {
-                if(char[row][i] == char[row][column]) return false;
+                if(board[row][i] == board[row][column]) return false;
             }
             
             //check for column where the element stays
             for(int i = row + 1; i < 9; i++)
             {
-                if(char[i][column] == char[row][column]) return false;
+                if(board[i][column] == board[row][column]) return false;
             }
             
             //check for 9 size cell where the element stays
@@ -32,7 +33,7 @@ public class Solution {
             {
                 for(int j = column + 1; j < 2 + 3 * cellColumn; j++)
                 {
-                    if(char[i][j] == char[row][column]) retur false;
+                    if(board[i][j] == board[row][column]) return false;
                 }
             }
         }
