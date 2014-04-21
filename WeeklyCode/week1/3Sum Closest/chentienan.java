@@ -1,5 +1,4 @@
-public class Solution {
-  public int threeSumClosest(int[] num, int target) {
+public int threeSumClosest(int[] num, int target) {
 		int[] arrayAfterSort = sort(num);
 		int result = Integer.MAX_VALUE;
 		int indexOfJustGEtarget = indexOfJustGEtarget(target, arrayAfterSort,
@@ -41,7 +40,17 @@ public class Solution {
 			if (arrayAfterSort[i] >= target)
 				break;
 		}
-		return i == arrayAfterSort.length ? i - 1 : i;
+		if (i == arrayAfterSort.length) {
+			for (int j = arrayAfterSort.length - 1; j >= arrayAfterSort.length - 3; j--) {
+				if (j == firstIndexCannotBeUsed || j == secondIndexCannotBeUsed) {
+					continue;
+				}
+				return j;
+			}
+			return -1;
+		} else {
+			return i;
+		}
 	}
 
 	// find twoSumClosest from num, target is num[index], and the index can't be
@@ -80,12 +89,12 @@ public class Solution {
 
 		if (indexJustLETarget == -1) {
 			return arrayAfterSort[indexJustGETarget];
-		} else if (indexJustGETarget == arrayAfterSort.length) {
+		} else if (indexJustGETarget == arrayAfterSort.length
+				|| indexJustGETarget == -1) {
 			return arrayAfterSort[indexJustLETarget];
 		} else {
-			return getDistance(realTarget, arrayAfterSort[indexJustLETarget]) < getDistance(
-					realTarget, arrayAfterSort[indexJustGETarget]) ? arrayAfterSort[indexJustLETarget]
-					: arrayAfterSort[indexJustGETarget];
+			return whichCloser(realTarget, arrayAfterSort[indexJustGETarget],
+					arrayAfterSort[indexJustLETarget]);
 		}
 	}
 
@@ -101,4 +110,3 @@ public class Solution {
 		}
 		return num;
 	}
-}
