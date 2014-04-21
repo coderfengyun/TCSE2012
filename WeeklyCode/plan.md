@@ -4,6 +4,8 @@ PS：希望大家尽量先独立完成，完成之后再看题解。
 讨论班时一起交流一下遇到的问题，或者好思路、好代码。
 :)
 
+PPS：如果是做过的题目，可以试着再做一遍，尽量做到1A，并且注意计时。
+
 #Week 1：数组
 - Remove Duplicates from Sorted Array II
 - Search in Rotated Sorted Array II
@@ -12,3 +14,8 @@ PS：希望大家尽量先独立完成，完成之后再看题解。
 - Valid Sudoku
 
 #Week 2: 单链表
+- Add Two Numbers
+- Reverse Linked List II
+- Remove Duplicates from Sorted List
+- Copy List with Random Pointer
+- LRU Cache
