@@ -3,6 +3,7 @@ public class Solution {
         if(head == null) return head;
         int listLength = getListLength(head);
         int[] randomIndexArray = new int[listLength];
+	RandomListNode[] mapIndexToNode = new RandomListNode[listLength];
         
         initArray(randomIndexArray);
         
@@ -11,6 +12,7 @@ public class Solution {
         while(headForIteration != null)
         {
             result = new RandomListNode(headForIteration.label);
+	    mapIndexToNode[currentIndex] = result;
             if(headForIteration.random == null)
             {
                 result.random = null;
@@ -25,7 +27,7 @@ public class Solution {
         return buildUpRandom(result, randomIndexArray);
     }
 
-    private RandomListNode buildUpRandom(RandomListNode index, int[] randomIndexArray)
+    private RandomListNode buildUpRandom(RandomListNode index, int[] randomIndexArray, RandomListNode[] map)
     {
         RandomListNode result = index;
         for(int i = 0; i < randomIndexArray.length && result != null; i++)
@@ -34,21 +36,8 @@ public class Solution {
             {
                 result.random = null;
             }else{
-                result.random = getWith(randomIndexArray[i], index);    
+		result.random = map[randomIndexArray[i]];
             }
-            result = result.next;
-        }
-        return result;
-    }
-
-    private RandomListNode getWith(int targetIndex, RandomListNode resultHead)
-    {
-        int index = 0;
-        RandomListNode result = resultHead;
-        if(targetIndex == -1) return null;
-        while(index != targetIndex)
-        {
-            index++;
             result = result.next;
         }
         return result;
