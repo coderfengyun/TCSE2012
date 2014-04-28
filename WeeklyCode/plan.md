@@ -19,3 +19,10 @@ PPS：如果是做过的题目，可以试着再做一遍，尽量做到1A，并
 - Remove Duplicates from Sorted List
 - Copy List with Random Pointer
 - LRU Cache
+
+#Week 4: 字符串
+- Valid Palindrome
+- Implement strStr()
+- String to Integer (atoi)
+- Regular Expression Matching
+- Simplify Path
