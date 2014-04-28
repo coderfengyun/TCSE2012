@@ -8,11 +8,11 @@ using namespace std;
 
 class Solution {
 
-    int saturatedConvertNegtive(int negtiveValue,int sign){
-        if(negtiveValue==INT_MIN && sign==1){
+    int saturatedConvertNegative(int negativeValue,int sign){
+        if(negativeValue==INT_MIN && sign==1){
             return INT_MAX;
         }
-        return -negtiveValue*sign;
+        return -negativeValue*sign;
     }
 
 public:
@@ -48,6 +48,6 @@ public:
             }
             p++;
         }
-        return saturatedConvertNegtive(res,sign);
+        return saturatedConvertNegative(res,sign);
     }
 };
