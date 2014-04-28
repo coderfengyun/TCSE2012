@@ -18,10 +18,10 @@ public class ReverseLinkedList {
 		mPrevious = index != -1 ? iterator : null;
 		mNode = iterator.next;
 		mNext = iterator.next != null ? iterator.next.next : null;
-		for (index = m + 1, iteratorforSwap = mNext, iteratorPrevious = mNode, iteratorNext = mNext.next; index <= n
-				&& iteratorforSwap != null; index++, iteratorforSwap = iteratorforSwap.next) {
+		for (index = m + 1, iteratorforSwap = mNext, iteratorPrevious = mNode; index <= n
+				&& iteratorforSwap != null; index++, iteratorforSwap = iteratorforSwap.next, iteratorPrevious = iteratorPrevious.next) {
 			// first delete it
-			iteratorPrevious.next = iteratorNext;
+			iteratorPrevious.next = iteratorforSwap.next;
 			// insert between mPrevious and mNode
 			mPrevious.next = iteratorforSwap;
 			iteratorforSwap.next = mPrevious.next;
