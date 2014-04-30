@@ -1,0 +1,6 @@
+<!ELEMENT travelDate (sigleDate*)>
+<!ELEMENT sigleDate EMPTY>
+<!-- the value must be in timestamp format as yyyy-mm-dd hh:mm:ss-->
+<!ATTLIST sigleDate 
+	value CDATA #REQUIRED
+>

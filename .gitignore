@@ -1,2 +1,8 @@
 *.exe
 *.class
+/*/.project
+/*/.classpath
+/*/.settings/
+/*/target/
+/*/logs/
+/*/bin/
