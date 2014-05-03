@@ -154,7 +154,7 @@ class RabinKarpStringFinder implements StringFinder{
 					return i-m;
 				}
 			}
-			h1=((h1-main.codePointAt(i-m)*b)*BASE+main.codePointAt(i))%MOD;
+			h1=((h1-(main.codePointAt(i-m)*b)%MOD)*BASE+main.codePointAt(i))%MOD;
 			if(h1<0){
 				h1+=MOD;
 			}
