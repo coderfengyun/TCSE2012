@@ -8,7 +8,8 @@ public class StrStr {
 			return null;
 		}
 //		StringFinder finder=new BruteForceStringFinder();
-		StringFinder finder=new KmpStringFinder(needle);
+//		StringFinder finder=new KmpStringFinder(needle);
+		StringFinder finder=new RabinKarpStringFinder();
 		int index=finder.indexOf(haystack,needle);
 		return index<0?null:haystack.substring(index);
 	}
@@ -112,5 +113,53 @@ class KmpStringFinder implements StringFinder{
 			initialize(sub);
 		}
 		return indexOf(main);
+	}
+}
+
+class RabinKarpStringFinder implements StringFinder{
+	
+	private static final long BASE=Character.MAX_CODE_POINT+1;
+	private static final long MOD=(long)(1e9+7);
+
+	@Override
+	public int indexOf(String main, String sub){
+		main=Objects.requireNonNull(main);
+		sub=Objects.requireNonNull(sub);
+		int n=main.length();
+		int m=sub.length();
+		if(m==0){
+			return 0;
+		}
+		if(m>n){
+			return -1;
+		}
+		if(m==n){
+			return main.equals(sub)?0:-1;
+		}
+		
+		long b=1;
+		for(int i=0;i<m-1;i++){
+			b=(b*BASE)%MOD;
+		}
+		
+		long h1=0,h2=0;
+		for(int i=0;i<m;i++){
+			h1=(h1*BASE+main.codePointAt(i))%MOD;
+			h2=(h2*BASE+sub.codePointAt(i))%MOD;
+		}
+		
+		for(int i=m;i<n;i++){
+			if(h1==h2){
+				if(main.substring(i-m,i).equals(sub)){
+					return i-m;
+				}
+			}
+			h1=((h1-main.codePointAt(i-m)*b)*BASE+main.codePointAt(i))%MOD;
+			if(h1<0){
+				h1+=MOD;
+			}
+		}
+
+		return -1;
 	}
 }
