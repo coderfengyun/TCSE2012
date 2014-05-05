@@ -22,4 +22,42 @@ public:
         }
         return nullptr;
     }
+	
+	char *strStr2(char *haystack, char *needle)
+    {
+		//kmp
+        int hlen = strlen(haystack);
+        int nlen = strlen(needle);
+        if(hlen < nlen) return NULL;
+        int *shift = new int[nlen];
+        shift[0]=-1;
+        for(int i=1; i<nlen; i++)
+        {
+            int idx = shift[i-1];
+            while(idx!=-1 && needle[i]!=needle[idx+1] )
+                idx = shift[idx];
+            if(needle[i] == needle[idx+1])
+                shift[i] = idx+1;
+            else shift[i] = -1;
+        }
+        int hidx=0,nidx=0;
+        while(hidx<hlen && nidx<nlen)
+        {
+            if(haystack[hidx] == needle[nidx])
+            {
+                hidx++;nidx++;
+            }
+            else if(nidx==0) hidx++;
+            else
+            {
+                nidx=shift[nidx-1]+1;
+            }
+        }
+        delete []shift;
+        if(nidx == nlen)
+        {
+            return haystack+hidx-nidx;
+        }
+        return NULL;
+    }
 };
