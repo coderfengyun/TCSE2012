@@ -20,6 +20,9 @@ public class Solution {
             }
         }
         if(temp.length() > 0) result.append(temp);
+        if(result.length() > 1 && result.charAt(result.length() - 1) == '/'){
+            result.deleteCharAt(result.length() - 1);
+        }
         return result.toString();
     }
     
@@ -43,13 +46,23 @@ public class Solution {
         result.append('/');
     }
     
-    private void dealWithUpperLayer(StringBuffer result)
-    {
-        result.deleteCharAt(result.length() - 1);
-        int index = result.lastIndexOf("//");
-        if(index == 0 || index == -1) {
-            return;
-        }
-        result.delete(index, result.length() - 1);
-    }
+    private void dealWithUpperLayer(StringBuffer result) {
+		int secondLastSlashIndex = findSecondLastSlash(result);
+		if(secondLastSlashIndex == -1){
+		    return;
+		}
+		StringBuffer temp = result.delete(secondLastSlashIndex,
+				result.length() - 1);
+	}
+
+	private int findSecondLastSlash(StringBuffer input) {
+		String temp = input.toString();
+		int lastSlashIndex = temp.lastIndexOf("/");
+		if (lastSlashIndex == 0 || lastSlashIndex == -1) {
+			return -1;
+		}
+		temp = temp.substring(0, temp.length() - 1);
+		int result = temp.lastIndexOf("/");
+		return result;
+	}
 }
