@@ -29,3 +29,10 @@ PPS：如果是做过的题目，可以试着再做一遍，尽量做到1A，并
 - String to Integer (atoi)
 - Regular Expression Matching
 - Simplify Path
+
+##Week 4: 栈和队列 & 二叉树遍历
+- Valid Parentheses
+- Largest Rectangle in Histogram
+- Binary Tree Zigzag Level Order Traversal
+- Balanced Binary Tree
+- Populating Next Right Pointers in Each Node II
