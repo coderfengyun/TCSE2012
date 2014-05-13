@@ -36,3 +36,10 @@ PPS：如果是做过的题目，可以试着再做一遍，尽量做到1A，并
 - Binary Tree Zigzag Level Order Traversal
 - Balanced Binary Tree
 - Populating Next Right Pointers in Each Node II
+
+##Week 5: 二叉树其他
+- Construct Binary Tree from Preorder and Inorder Traversal
+- Unique Binary Search Trees II
+- Convert Sorted List to Binary Search Tree
+- Minimum Depth of Binary Tree
+- Path Sum
