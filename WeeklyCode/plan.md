@@ -47,6 +47,6 @@ PPS：如果是做过的题目，可以试着再做一遍，尽量做到1A，并
 ##Week 6：排序 & 二分
 - sqrt(x)
 - Search for a Range
+- Pow(x,n)
 - Merge k Sorted Lists
-- Sort Colors
 - Sort List
