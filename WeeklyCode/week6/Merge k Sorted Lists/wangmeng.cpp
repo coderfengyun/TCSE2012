@@ -1,5 +1,4 @@
-#include "LeetCode.h"
-
+/* Use heap to find the minimum node */
 class Solution {
 public:
     struct cmp {

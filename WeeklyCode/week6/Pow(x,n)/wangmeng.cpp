@@ -1,5 +1,3 @@
-#include "LeetCode.h"
-
 class Solution {
 public:
     double pow(double x, int n) {

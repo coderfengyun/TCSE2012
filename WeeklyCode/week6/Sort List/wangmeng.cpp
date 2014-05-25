@@ -1,15 +1,6 @@
-#include "LeetCode.h"
-
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
 class Solution {
 public:
+  // Simulate quick sort
   ListNode *sortList(ListNode *head) {
     if (head == NULL) return NULL;
     ListNode h1(0), h2(0), h3(0), *t1=&h1, *t2=&h2, *t3=&h3;
