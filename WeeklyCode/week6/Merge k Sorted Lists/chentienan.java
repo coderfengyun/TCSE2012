@@ -10,7 +10,7 @@
  * }
  */
 public class Solution {
-    public ListNode mergeKLists(ArrayList<ListNode> lists) {
+   public ListNode mergeKLists(ArrayList<ListNode> lists) {
 		int totalCount = lists.size();
 		int finishCount = 0;
 		boolean[] finish = new boolean[totalCount];
@@ -18,31 +18,48 @@ public class Solution {
 		if (totalCount == 0) {
 			return null;
 		}
-		int minValue = Integer.MAX_VALUE, minIndex = -1;
 		while (finishCount < totalCount) {
-			for (int i = 0; i < lists.size(); i++) {
-				ListNode node = lists.get(i);
-				if (node == null) {
-				    if(!finish[i]){
-				        finish[i] = true;
-					    finishCount++;    
-				    }
-					continue;
-				}
-				if (minValue > node.val) {
-					minValue = node.val;
-					minIndex = i;
-				}
-			}
-			if (minValue == Integer.MAX_VALUE) {
+			TwoTupple tupple = getMin(lists, finish);
+			finishCount += tupple.finishCount;
+			if (tupple.minIndex == -1) {
 				continue;
 			}
-			lists.set(minIndex, lists.get(minIndex).next);
-			iterator.next = new ListNode(minValue);
-			minValue = Integer.MAX_VALUE;
+			iterator.next = new ListNode(lists.get(tupple.minIndex).val);
+			lists.set(tupple.minIndex, lists.get(tupple.minIndex).next);
 			iterator = iterator.next;
 		}
 		return sentinel.next;
+	}
+
+	private TwoTupple getMin(ArrayList<ListNode> lists, boolean[] finish) {
+		int minValue = Integer.MAX_VALUE;
+		int minIndex = -1;
+		int finishCount = 0;
+		for (int i = 0; i < lists.size(); i++) {
+			ListNode node = lists.get(i);
+			if (node == null) {
+				if (!finish[i]) {
+					finish[i] = true;
+					finishCount++;
+				}
+				continue;
+			}
+			if (minValue > node.val) {
+				minValue = node.val;
+				minIndex = i;
+			}
+		}
+		return new TwoTupple(minIndex, finishCount);
+	}
+
+	public class TwoTupple {
+		public int minIndex;
+		public int finishCount;
+
+		public TwoTupple(int minIndex, int finishCount) {
+			this.minIndex = minIndex;
+			this.finishCount = finishCount;
+		}
 	}
     
 }
