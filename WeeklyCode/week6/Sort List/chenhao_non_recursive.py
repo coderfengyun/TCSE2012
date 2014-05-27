@@ -1,3 +1,26 @@
+import time
+
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
+    def __repr__(self):
+        return str(self.val)
+
+def makeList(valList):
+    head=cur=ListNode(valList[0])
+    for val in valList[1:]:
+        cur.next=ListNode(val)
+        cur=cur.next
+    return head
+
+def printList(head):
+    while head!=None:
+        print(head.val, end=' ')
+        head=head.next
+    print()
+    
 class Solution:
 
     def getFirstK(self,head,k):
@@ -56,3 +79,13 @@ class Solution:
             (head,end)=self.sort0(head,step)
             step*=2
         return head
+
+        
+if __name__ == '__main__':
+    head=makeList([1]*100000)
+    # head=makeList([3,2,1,1])
+    # printList(head)
+    start=time.time()
+    newHead=Solution().sortList(head)
+    print(time.time()-start)
+    # printList(newHead)

@@ -50,3 +50,10 @@ PPS：如果是做过的题目，可以试着再做一遍，尽量做到1A，并
 - Pow(x,n)
 - Merge k Sorted Lists
 - Sort List
+
+#Week 7: 搜索&遍历
+- Restore IP Addresses
+- Subsets II
+- N-Queens II
+- Word Ladder
+- Surrounded Regions
