@@ -1,0 +1,30 @@
+class Solution {
+public:
+  inline char next(char c) {
+    return c=='z'?'a':c+1;
+  }
+  int ladderLength(string start, string end, unordered_set<string> &dict) {
+    if (start == end) return 2;
+    int lvl = 0;
+    queue<string> q[2];
+    q[0].push(start);
+    while(!q[lvl&1].empty()) {
+      string front = q[lvl&1].front();
+      q[lvl&1].pop();
+      if (front == end) return lvl+1;
+      int sz = front.size();
+      for (int i=0; i<sz; i++) {
+	for (int j=1; j<26; j++) {
+	  front[i] = next(front[i]);
+	  if (dict.find(front) != dict.end()) {
+	    q[(lvl+1)&1].push(front);
+	    dict.erase(front);
+	  }
+	}
+	front[i] = next(front[i]);
+      }
+      if (q[lvl&1].empty()) lvl++;
+    }
+    return 0;
+  }
+};
