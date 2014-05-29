@@ -1,31 +1,34 @@
-class Solution {
-public:
-  int totalNQueens(int n) {
-       vector<int> path;
-	   int num = 0;
-	   dfs2(path, num, 0, n);
-	   return num;
-    }
+class Solution{
+ public:
+     int totalNQueens(int n) {
+         int result = 0;   
+         if (n <= 0)
+             return 0;
+         vector<int>path;
+         dfs(0, n, path, result);
+         return result;
+     }
 
-	void dfs2(vector<int>& path, int& num, int row, int n){
-		if (row == n){
-			num++;
-			return;
-		}
-		for (int i = 0; i < n; i++){
-			if (isValid(path, row, i)){
-				path.push_back(i);
-				dfs2(path, num, row+1, n);
-				path.pop_back();
-			}
-		}
-	}
-	
-	bool isValid(vector<int> &path, int x, int y){
-		for (int i = 0; i < x; i++){
-			if (abs(y - path[i]) == abs(x - i) || y == path[i])
-				return false;
-		}
-		return true;
-	}
+     bool isValid(vector<int>& path, int col, int n){
+         int row = path.size();
+         for (int i = 0; i < path.size(); i++){
+             if (col == path[i] || abs(col - path[i]) == abs(row - i))
+                 return false;
+         }
+         return true;
+     }
+
+     void dfs(int row, int n, vector<int>& path, int &result){
+         if (row == n){
+             result += 1;
+             return;
+         }
+         for (int i = 0; i < n; i++){
+             if (isValid(path, i, n)){
+                 path.push_back(i);
+                 dfs(row+1, n, path, result);
+                 path.pop_back();
+             }
+         }
+     }
 };
