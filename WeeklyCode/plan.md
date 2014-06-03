@@ -57,3 +57,10 @@ PPS：如果是做过的题目，可以试着再做一遍，尽量做到1A，并
 - N-Queens II
 - Word Ladder
 - Surrounded Regions
+
+#Week 8: 贪心
+- Permutations II
+- Longest Substring Without Repeating Characters
+- Jump Game II
+- Best Time to Buy and Sell Stock
+- Best Time to Buy and Sell Stock II
