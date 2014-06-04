@@ -1,5 +1,6 @@
 public class Solution {
-	Map<String, Integer> footPrints = new HashMap<String, Integer>();
+     Map<String, Integer> footPrints = new HashMap<String, Integer>();
+	private int minResult = Integer.MAX_VALUE;
 
 	public int ladderLength(String start, String end, Set<String> dict) {
 		return ladderLength0(start, end, dict, 0);
@@ -13,7 +14,11 @@ public class Solution {
 			throw new RuntimeException();
 		}
 		if (start.equals(end)) {
+			this.minResult = Math.min(swapTimes + 1, this.minResult);
 			return 1;
+		}
+		if (swapTimes + 1 > this.minResult) {
+			return result;
 		}
 		if (!dict.contains(end)) {
 			dict.add(end);
@@ -30,8 +35,12 @@ public class Solution {
 					continue;
 				}
 				if (dict.contains(temp)) {
-					footPrints.put(temp, ++swapTimes);
-					int upperResult = ladderLength0(temp, end, dict, swapTimes);
+					footPrints.put(temp, swapTimes + 1);
+					if (swapTimes > result) {
+						continue;
+					}
+					int upperResult = ladderLength0(temp, end, dict,
+							swapTimes + 1);
 					if (upperResult == 0) {
 						// 0 as failure
 						continue;
@@ -48,3 +57,4 @@ public class Solution {
 		return toBeChanged.substring(0, index) + replace
 				+ toBeChanged.substring(index + 1);
 	}
+}
