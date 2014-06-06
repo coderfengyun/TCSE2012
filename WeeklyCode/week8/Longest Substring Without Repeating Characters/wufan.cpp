@@ -18,7 +18,8 @@ public:
                }
            }
            exsited[c] = i;
-           if (cur_len > max_len) max_len = cur_len;
+           if (cur_len > max_len) 
+                max_len = cur_len;
        }
        return max_len;
     }
