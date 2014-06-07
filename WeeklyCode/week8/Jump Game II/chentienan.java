@@ -1,13 +1,13 @@
 public class Solution {
     public int jump(int[] A) {
-        int result = 0, target = A.length - 1, temp = -1;
         if(A == null || A.length == 0){
-            return result;
+            return 0;
         }
+        int result = 0, target = A.length - 1, temp = -1;
         while(target > 0){
             temp = findMinReachable(target, A);
             if(temp == -1){
-                return 0;
+                return -1;
             }
             target = temp;
             result++;
