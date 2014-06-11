@@ -64,3 +64,10 @@ PPS：如果是做过的题目，可以试着再做一遍，尽量做到1A，并
 - Jump Game II
 - Best Time to Buy and Sell Stock
 - Best Time to Buy and Sell Stock II
+
+#Week 9：动态规划
+- Distinct Subsequences
+- Maximal Rectangle
+- Interleaving String
+- Word Break II
+- Scramble String
