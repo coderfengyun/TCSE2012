@@ -67,7 +67,7 @@ PPS：如果是做过的题目，可以试着再做一遍，尽量做到1A，并
 
 #Week 9：动态规划
 - Distinct Subsequences
-- Maximal Rectangle
+- Palindrome Partitioning II
 - Interleaving String
 - Word Break II
 - Scramble String
