@@ -12,12 +12,12 @@ public:
     }
     for (int len=2; len<=size; len++) {
       for (int i=0; i+len <= size; i++) { // i+len <= size
-	for (int j=0; j+len <= size; j++) { // j+len <= size
-	  for (int t=1; t<len; t++) {
-                        dp[i][j][len] = dp[i][j][len] || dp[i][j][t] && dp[i+t][j+t][len-t] 
-			  || dp[i][j+len-t][t] && dp[i+t][j][len-t];
-	  }
-	}
+        for (int j=0; j+len <= size; j++) { // j+len <= size
+          for (int t=1; t<len; t++) {
+            dp[i][j][len] = dp[i][j][len] || dp[i][j][t] && dp[i+t][j+t][len-t] 
+                            || dp[i][j+len-t][t] && dp[i+t][j][len-t];
+          }
+        }
       }
     }
     return dp[0][0][size];

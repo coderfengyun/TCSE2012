@@ -11,7 +11,7 @@ public:
     for (int i=1; i<=s2.size() && s2[i-1] == s3[i-1]; i++) dp[i] = true;
     for (int i=1; i<=s1.size(); i++) {
       for (int j=0; j<=s2.size(); j++) {
-	dp[j] = (s1[i-1] == s3[i+j-1] && dp[j]) || (j > 0 && s2[j-1] == s3[i+j-1] && dp[j-1]);
+        dp[j] = (s1[i-1] == s3[i+j-1] && dp[j]) || (j > 0 && s2[j-1] == s3[i+j-1] && dp[j-1]);
       }
     }
     return dp[s2.size()];
