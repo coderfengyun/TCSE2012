@@ -1,7 +1,8 @@
 class liuxianglong {
     private List<List<Integer>> buildDup(int dup,int target,List<Integer> subset){
         List<List<Integer>> res = new ArrayList<List<Integer>>();
-        for(int i=0;i<=dup;i++){
+        res.add(subset);
+        for(int i=1;i<=dup;i++){
             List<Integer> newSet = new ArrayList<Integer>(subset);
             for(int j=0;j<i;j++){
                 newSet.add(target);

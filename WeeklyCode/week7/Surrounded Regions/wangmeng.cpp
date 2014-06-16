@@ -37,7 +37,7 @@ public:
       }
     }
     for_each(board.begin(), board.end(), [](vector<char>& row) {
-	for_each(row.begin(), row.end(), [](char& c) {c=c=='o'?'O':c;}); 
-      });
+	     for_each(row.begin(), row.end(), [](char& c) {c=c=='o'?'O':c;}); 
+    });
   }
 };
