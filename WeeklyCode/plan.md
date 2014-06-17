@@ -71,3 +71,11 @@ PPS：如果是做过的题目，可以试着再做一遍，尽量做到1A，并
 - Interleaving String
 - Word Break II
 - Scramble String
+
+#Week 10: 细节实现
+- Palindrome Number
+- Spiral Matrix
+- Text Justification
+- Merge Intervals
+- Divide Two Integers
+- Multiply Strings
