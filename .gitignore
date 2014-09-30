@@ -1,19 +1,8 @@
 *.exe
 *.class
-<<<<<<< HEAD
-<<<<<<< HEAD
-*.zip
-=======
-=======
->>>>>>> 9665a345f77fc195c7e917cd70dc327ddb3c4d9f
 /*/.project
 /*/.classpath
 /*/.settings/
 /*/target/
 /*/logs/
-<<<<<<< HEAD
 /*/bin/
->>>>>>> 9665a345f77fc195c7e917cd70dc327ddb3c4d9f
-=======
-/*/bin/
->>>>>>> 9665a345f77fc195c7e917cd70dc327ddb3c4d9f

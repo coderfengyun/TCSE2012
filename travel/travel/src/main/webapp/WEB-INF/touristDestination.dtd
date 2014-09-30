@@ -1,0 +1,8 @@
+<!ELEMENT touristDest (place*)>
+<!ELEMENT place EMPTY>
+<!--The number is the value will be stored in DB, and it should be a integer -->
+<!ATTLIST place
+	title CDATA #REQUIRED
+	description CDATA #REQUIRED
+	number CDATA #REQUIRED
+>
